@@ -1,0 +1,45 @@
+Question : LeetCode 203. Remove Linked List Elements
+Solution :
+class Solution {
+    public ListNode removeElements(ListNode head, int val) {
+//        if(head==null||head.next==null) return head;
+//         ListNode prv=head;
+//         ListNode curr=head.next;
+        
+//          while(curr!=null){
+//             if(prv.val==val){
+//                prv=curr;
+//                 curr=curr.next;
+//              }
+            
+//             if(curr.val==val){
+//                 prv.next=curr.next;
+//             }else{
+//                 prv=prv.next;
+//             }
+//             curr=curr.next;
+//         }
+        
+        
+//        return head; 
+        
+        ListNode dummy=new ListNode(-1);
+        
+        dummy.next=head;
+        ListNode curr=dummy;
+        while(curr.next!=null){
+            if( curr.next.val==val){
+                curr.next=curr.next.next;
+                
+            }else{
+                //dummy=dummy.next;
+                     curr=curr.next;
+            }
+            
+       
+            
+        }
+        
+        return dummy.next;
+    }
+}

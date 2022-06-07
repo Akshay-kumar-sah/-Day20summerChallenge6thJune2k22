@@ -1,0 +1,46 @@
+Question : GFG - Given a linked list of 0s, 1s and 2s, sort it.
+Solution : 
+
+class Solution
+{
+    //Function to sort a linked list of 0s, 1s and 2s.
+    static Node segregate(Node head)
+    {
+        // add your code here
+        
+        //Collections.sort(Node);
+        int count_0=0;
+        int count_1=0;
+        int count_2=0;
+        Node curr=head;
+        
+        while(curr!=null){
+            
+            if(curr.data==0){
+                count_0++;
+            }else if(curr.data==1){
+                count_1++;
+                
+            }else if(curr.data==2) {
+               count_2++; 
+            }
+            
+            curr=curr.next;
+        }
+        curr=head;
+       while(curr!=null){
+           if(count_0!=0){
+               curr.data=0;
+               count_0--;
+           }else if(count_1!=0){
+               curr.data=1;
+               count_1--;
+           }else if(count_2!=0) {
+               curr.data=2;
+               count_2--;
+           }
+           curr=curr.next;
+       }
+        return head;
+    }
+}
